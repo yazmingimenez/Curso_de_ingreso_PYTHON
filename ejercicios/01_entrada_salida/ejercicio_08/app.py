@@ -8,12 +8,12 @@ import customtkinter
 nombre:
 apellido:
 ---
-Ejercicio: entrada_salida_06
+Ejercicio: entrada_salida_08
 ---
 Enunciado:
-Al presionar el botón  'Sumar', se deberán obtener los valores contenidos en las cajas de texto (txt_operador_A y txt_operador_B), 
-transformarlos en números enteros, realizar la suma y luego mostrar el resultado de la operación utilizando el Dialog Alert. 
-Ej: "El resultado de la sumas es: 755" 
+Al presionar el botón  'Calcular', se deberán obtener los valores contenidos en las cajas de texto (txtOperadorA y txtOperadorB), 
+transformarlos en números enteros, calcular y mostrar el resto de la división utilizando el Dialog Alert. 
+Ej: "El resto de dividir 7 por 2 es: 1" 
 '''
 
 class App(customtkinter.CTk):
@@ -36,15 +36,21 @@ class App(customtkinter.CTk):
         self.txt_operador_b = customtkinter.CTkEntry(master=self)
         self.txt_operador_b.grid(row=1, column=1)
         
-        self.btn_sumar = customtkinter.CTkButton(master=self, text="Sumar", command=self.btn_sumar_on_click)
-        self.btn_sumar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
+        self.btn_mostrar = customtkinter.CTkButton(master=self, text="Mostrar", command=self.btn_mostrar_on_click)
+        self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
 
-    def btn_sumar_on_click(self):
-        pass
-     
+    def btn_mostrar_on_click(self):
         
+        operador_a = int(self.txt_operador_a.get())
+        operador_b = int(self.txt_operador_b.get())
+        resultado = operador_a % operador_b
+        alert(title="respuesta", message=f"el resto de la division es : {resultado}")
+        
+        pass
+        
+        
+    
 if __name__ == "__main__":
     app = App()
-    app.geometry("300x300")
     app.mainloop()

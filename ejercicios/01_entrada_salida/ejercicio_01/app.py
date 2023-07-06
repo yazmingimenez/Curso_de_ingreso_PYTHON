@@ -4,15 +4,15 @@ from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
+
 '''
-nombre:
-apellido:
+nombre: yazmin
+apellido: gimenez
 ---
-Ejercicio: entrada_salida_03
+Ejercicio: entrada_salida_01
 ---
 Enunciado:
-Al presionar el botón  'Mostrar', se deberá obtener contenido en la caja de texto y luego 
-mostrarlo utilizando el Dialog Alert
+Al presionar el  botón, se debe mostrar un mensaje como el siguiente "Esto no anda, funciona".
 '''
 
 class App(customtkinter.CTk):
@@ -23,22 +23,16 @@ class App(customtkinter.CTk):
         # configure window
         self.title("UTN FRA")
 
-        self.label1 = customtkinter.CTkLabel(master=self, text="Nombre")
-        self.label1.grid(row=0, column=0, padx=20, pady=10)
-        
-        self.txt_nombre = customtkinter.CTkEntry(master=self)
-        self.txt_nombre.grid(row=0, column=1)
-        
-        
         self.btn_mostrar = customtkinter.CTkButton(master=self, text="Mostrar", command=self.btn_mostrar_on_click)
         self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
 
     def btn_mostrar_on_click(self):
+       
+        alert(title="ej e1",message="Esto no anda, funciona")
         pass
-                
-    
+        
+
 if __name__ == "__main__":
     app = App()
-    app.geometry("300x300")
     app.mainloop()
