@@ -52,9 +52,51 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
-            
-    
+        estaciones=self.combobox_estaciones.get()
+        destinos= self.combobox_destino.get()
+        estadiaBase= 15000
+
+        descuento_20= estadiaBase *0.80
+        Aumento_20= estadiaBase * 1.2
+        descuento_10= estadiaBase *0.90
+        Aumento_10 = estadiaBase *1.1
+
+
+        match(destinos):
+            case "Bariloche":
+                match(estaciones):
+                    case "Invierno":
+                        valor= Aumento_20
+                    case "Verano":
+                        valor= descuento_20
+                    case  _:
+                        valor= Aumento_10
+            case "Cataratas":
+                match(estaciones):
+                    case "Invierno":
+                        valor= descuento_10
+                    case "Verano":
+                        valor= Aumento_10
+                    case _:
+                        valor= Aumento_10
+            case "Cordoba": 
+                match(estaciones):
+                    case "Invierno":
+                        valor= descuento_10
+                    case "Verano":
+                        valor= Aumento_10
+                    case _:
+                        valor=estadiaBase             
+            case "Mar del plata":
+                match(estaciones):
+                    case "Invierno":        
+                        valor= descuento_20
+                    case "Verano":
+                        valor= Aumento_20
+                    case _:
+                        valor= Aumento_10
+        alert(title="resultado", message=valor)
+        
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

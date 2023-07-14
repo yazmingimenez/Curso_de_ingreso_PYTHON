@@ -7,8 +7,8 @@ import random
 
 
 '''
-nombre:
-apellido:
+nombre: yazmin
+apellido: gimenez
 ---
 Ejercicio: instrucion_if_09
 ---
@@ -24,12 +24,18 @@ class App(customtkinter.CTk):
         # configure window
         self.title("UTN Fra")
 
-        self.btn_mostrar = customtkinter.CTkButton(master=self, text="Mostrar", command=self.btn_mostrar_on_click)
+        self.btn_mostrar = customtkinter.CTkButton(master=self, text="mostrar", command=self.btn_mostrar_on_click)
         self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
 
     def btn_mostrar_on_click(self):
-        pass
+      import random
+      numero=random.randint(0, 10)
+      prueba= True
+    
+      if prueba == True :
+        alert(title="respuesta", message= numero)
+        
         
 
 if __name__ == "__main__":

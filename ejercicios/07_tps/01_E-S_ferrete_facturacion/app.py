@@ -48,14 +48,31 @@ class App(customtkinter.CTk):
         self.btn_total_iva.grid(row=5, pady=10, columnspan=2, sticky="nsew")
 
     def btn_total_on_click(self):
-        pass
+      importeUno=int(self.txt_importe_1.get())
+      importeDos=int(self.txt_importe_2.get())
+      importeTres=int(self.txt_importe_3.get())
+      importeFinal= importeUno + importeDos + importeTres
+
+      alert(title="respuesta",message=importeFinal)
+      
+        
 
     def btn_promedio_on_click(self):
-        pass
+      importeUno=int(self.txt_importe_1.get())
+      importeDos=int(self.txt_importe_2.get())
+      importeTres=int(self.txt_importe_3.get())
+      importeFinal= (importeUno + importeDos + importeTres)/3
+
+      alert(title="respuesta",message=importeFinal)
 
     def btn_total_iva_on_click(self):
-        pass      
+      importeUno=int(self.txt_importe_1.get())
+      importeDos=int(self.txt_importe_2.get())
+      importeTres=int(self.txt_importe_3.get())
+      importeFinal= (importeUno + importeDos + importeTres)*1.21
     
+      alert(title="respuesta",message=importeFinal)
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
