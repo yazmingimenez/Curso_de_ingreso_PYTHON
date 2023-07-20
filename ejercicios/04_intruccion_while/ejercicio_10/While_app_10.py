@@ -33,10 +33,36 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+        resultado_prompt= "si"
+        suma_negativos= 0
+        suma_positivos= 0
+        contador= 0
+        cant_positivos= 0
+        cant_negativos= 0
+        while(resultado_prompt != None):
+
+            numero_ingresado = int(prompt(title="ej 8", prompt="escriba numeros"))
+
+
+            if(numero_ingresado > 0):
+                suma_positivos= suma_positivos + numero_ingresado
+            elif(numero_ingresado < 0):
+                suma_negativos= suma_negativos + numero_ingresado
+            elif(cant_positivos==contador):
+                cant_positivos = numero_ingresado + contador
+                contador= contador + 1
+            
+            
+
+            resultado_prompt=prompt(title="ej 10", prompt="desea continuar?")
+
+        alert(title="respuesta", message="la suma acumulada de los positivos es {0} La suma acumulada de los negativos es {1} la Cantidad de números positivos ingresados son {2}".format(suma_positivos,suma_negativos, cant_positivos))
 
     
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
     app.mainloop()
+
+
+

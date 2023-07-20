@@ -33,10 +33,39 @@ class App(customtkinter.CTk):
         self.btn_mostrar = customtkinter.CTkButton(
             master=self, text="Comenzar Ingreso", command=self.btn_comenzar_ingreso_on_click)
         self.btn_mostrar.grid(row=2, padx=20, pady=20,
-                              columnspan=2, sticky="nsew")
+        columnspan=2, sticky="nsew")
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+        resultado_prompt = "si"
+        bandera_primero = True
+
+        while resultado_prompt != None:
+            
+            numero = prompt(title="utn",prompt="ingrese un numero")
+            numero = int(numero)
+
+            if (bandera_primero == True):
+                maximo = numero
+                minimo = numero
+                bandera_primero = False
+            else :
+                if numero < minimo:
+                    minimo = numero
+
+                elif numero > maximo:
+                    maximo = numero
+                
+                
+
+            resultado_prompt = prompt(title="UTN",prompt="desea seguir?")
+
+
+
+        self.txt_maximo.delete(0, 1000)
+        self.txt_maximo.insert(0, maximo)
+        self.txt_minimo.delete(0, 1000)
+        self.txt_minimo.insert(0, minimo)
+
 
 
 if __name__ == "__main__":

@@ -15,7 +15,7 @@ Luego informar los resultados en las cajas de texto txt_suma_acumulada y txt_pro
 class App(customtkinter.CTk):
     
     def __init__(self):
-        super().__init__()
+        super().__init__()   
 
         # configure window
         self.title("UTN FRA")
@@ -31,7 +31,18 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+        contador= 0
+        acumulador=0
+        while(contador<5):
+            numeros_ingresados=int(prompt(title="bienvenido",prompt="ingrese 5 numeross"))
+            contador +=  1
+            acumulador += numeros_ingresados
+            promedio= acumulador / contador
+
+        self.txt_suma_acumulada.delete(0,1000)
+        self.txt_promedio.delete(0,1000)
+        self.txt_suma_acumulada.insert(0,acumulador)
+        self.txt_promedio.insert(0,promedio)
 
     
 if __name__ == "__main__":
